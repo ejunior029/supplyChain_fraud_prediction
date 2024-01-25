@@ -1,7 +1,7 @@
 # Detecção de Operações Fraudulentas - DataCo Global
 
-## Descrição do Projeto
-Este repositório contém todas as análises e modelos desenvolvidos para o projeto de análise de dados da DataCo Global, uma renomada empresa global do setor de supply chain. O objetivo foi explorar a base de dados de operações da empresa para extrair insights valiosos, identificar pontos de melhoria e prever tendências futuras.
+## 🚀 Descrição do Projeto
+Este repositório é o coração do projeto de analytics da DataCo Global, onde mergulhamos profundamente nos dados para desvendar as operações da empresa e otimizar seu desempenho. Nosso foco principal foi na detecção de fraudes, visando salvar a empresa de perdas significativas e impulsionar sua eficiência operacional.
 
 ## Pré-Processamento Dos Dados
 - Foram consideradas as vendas realizadas somente até setembro/2017 devido a um possível problema operacional na base, que fez com que após esta data apenas vendas a novos clientes fossem consideradas, desconsiderando os clientes antigos. Além disso, os clientes novos compravam apenas uma vez. Sendo assim, para não trabalhar com um conjunto de dados com uma possível interferência, foi realizado este filtro.
@@ -11,13 +11,13 @@ Este repositório contém todas as análises e modelos desenvolvidos para o proj
   - O preenchimento de valores faltantes para variáveis categóricas com a moda
   - O preenchimento de valores faltantes para variáveis numéricas com a mediana
  
-## Modelagem
+## 🤖 Modelagem
 
 Os dados foram divididos em 70% para treino e 30% para teste, sendo que são extremamente desbalanceados, conforme a Figura abaixo:
 
 <img src="https://i.ibb.co/7zjpbkF/fraude.png">
 
-Possuindo apenas 2,3% de operações fraudulentas. Além disso, foi utilizada uma função de validação cruzada estratificada (pois a base é desbalanceada), dividindo os dados em 5 folds. Com isso, foram obtidas 5 valores para cada métrica, sendo realizada a média para chegar à um único valor representativo.
+Possuindo apenas 2,3% de operações fraudulentas. Além disso, foi construída uma função de validação cruzada estratificada (pois a base é desbalanceada), dividindo os dados em 5 folds. Com isso, foram obtidas 5 valores para cada métrica, sendo realizada a média para chegar à um único valor representativo.
 
 ## Métricas Obtidas Pelo Modelo
 Neste projeto foram utilizados os seguintes modelos:
