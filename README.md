@@ -1,7 +1,11 @@
 # Detecção de Operações Fraudulentas - DataCo Global
+<img src=https://i.ibb.co/FbkZDPw/fraude.png>
 
 ## 🚀 Descrição do Projeto
 Este repositório é o coração do projeto de analytics da DataCo Global, onde mergulhamos profundamente nos dados para desvendar as operações da empresa e otimizar seu desempenho. Nosso foco principal foi na detecção de fraudes, visando salvar a empresa de perdas significativas e impulsionar sua eficiência operacional.
+
+📄 [Veja a apresentação do projeto]()
+
 
 ## Pré-Processamento Dos Dados
 - Foram consideradas as vendas realizadas somente até setembro/2017 devido a um possível problema operacional na base, que fez com que após esta data apenas vendas a novos clientes fossem consideradas, desconsiderando os clientes antigos. Além disso, os clientes novos compravam apenas uma vez. Sendo assim, para não trabalhar com um conjunto de dados com uma possível interferência, foi realizado este filtro.
