@@ -1,11 +1,27 @@
 # Detecção de Operações Fraudulentas - DataCo Global
 <img src=https://i.ibb.co/FbkZDPw/fraude.png>
 
-## 🚀 Descrição do Projeto
+## 📌 Descrição do Projeto
 Este repositório é o coração do projeto de analytics da DataCo Global, onde mergulhamos profundamente nos dados para desvendar as operações da empresa e otimizar seu desempenho. Nosso foco principal foi na detecção de fraudes, visando salvar a empresa de perdas significativas e impulsionar sua eficiência operacional.
 
-📄 [Veja a apresentação do projeto]()
+📄 [Veja a apresentação do projeto]()  
+📄 [Veja o template do notebook]()
 
+## 💼 Entendimento do Negócio
+
+Em um mundo onde transações financeiras se tornaram a grande moeda do comércio global, a segurança e integridade desses processos são de suma importância. Empresas de supply chain que operam internacionalmente estão **cada vez mais vulneráveis a esquemas fraudulentos**, que não só comprometem suas finanças mas também sua credibilidade e operações. 
+
+Ao adentrar a era do big data e aprendizado de máquina, temos a oportunidade de **criar barreiras mais sofisticadas e adaptativas contra a fraude**.
+
+Este projeto desenvolve um **modelo avançado de machine learning** com a capacidade de **detectar e prever atividades fraudulentas** em uma escala global. 
+  
+  
+### **Principais KPIs (Indicadores Chave de Desempenho) de Fraude:**
+
+- **Estratégias de Aceitação:** Melhoria da precisão na aceitação de transações legítimas, reduzindo o impacto dos falsos positivos.
+- **Lucro Bruto:** Operações financeiras que eram fraude e que foram corretamente negadas
+- **Perda Financeira**: Operações financeiras que eram fraude e que não foram identificadas
+- **Lucro Líquido**: Lucro remanescente das fraudes identificadas corretamente e das não identificadas
 
 ## 🛠 Pré-Processamento Dos Dados
 
@@ -116,7 +132,7 @@ Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global pode
 - **Impacto Líquido:** Com as melhorias propostas, a economia total projetada é de aproximadamente **$1.06 milhão**.
 - **Razão Lucro/Receita:** 97.7% 
 
-
-
+## 🚧 Próximos Passos
+A fase subsequente do projeto é o seu deployment, envolvendo a implantação do modelo em um ambiente operacional para avaliação da sua eficiência em condições reais.
 
 
