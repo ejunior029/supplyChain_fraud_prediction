@@ -124,7 +124,9 @@ Em seguida o XGBoost passou por um processo de tunagem de hiperparâmetros, atra
 
 Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global poderia deixar de perder se possuísse um modelo antifraude para fazer a segurança de operações financeiras de pagamento dos clientes.
 
-## 💡Desempenho Financeiro do Modelo
+## 💡Desempenho Financeiro e Métricas
+
+No processo de extrair o máximo do modelo para evitar perdas financeiras oriundas de operações fraudulentas, foram obtidos os seguintes resultados para métricas e indicadores financeiros:
 
 - **Threshold Ótimo:** 96
 - **Economia Significativa:** Implementação do modelo de detecção de fraude resultaria em uma economia estimada de **$1.09 milhão**.
