@@ -5,7 +5,7 @@
 Este repositório é o coração do projeto de analytics da DataCo Global, onde mergulhamos profundamente nos dados para desvendar as operações da empresa e otimizar seu desempenho. Nosso foco principal foi na detecção de fraudes, visando salvar a empresa de perdas significativas e impulsionar sua eficiência operacional.
 
 📄 [Veja a apresentação do projeto](https://github.com/ejunior029/supplyChain_fraud_prediction/blob/master/reports/Apresenta%C3%A7%C3%A3o%20-%20%20DataCo%20Global.pdf)  
-📄 [Veja o template do notebook](https://github.com/ejunior029/supplyChain_fraud_prediction/blob/master/notebooks/Fraude_Supply_Chain.ipynb)
+📄 [Veja o notebook do case fraude](https://github.com/ejunior029/supplyChain_fraud_prediction/blob/master/notebooks/Fraude_Supply_Chain.ipynb)
 
 ## 💼 Entendimento do Negócio
 
