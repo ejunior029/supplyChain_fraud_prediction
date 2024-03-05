@@ -113,14 +113,38 @@ Neste projeto foram utilizados os seguintes modelos:
 ### **Feature Selection**
 Como o XGBoost obteve o melhor desempenho geral, foi o modelo escolhido para passar por um processo de feature selection que envolve a seleção das variáveis (atributos) mais importantes para serem usadas na construção do modelo preditivo. O objetivo é **melhorar a performance** do modelo, **reduzir a complexidade computacional** e **evitar o overfitting**. Foi utilizada a técnica chamada ***Recursive Feature Elimination*** (RFE), que é uma abordagem que seleciona atributos por meio de um processo iterativo de ajuste do modelo e remoção das variáveis menos importantes.
 
+<img src=https://i.ibb.co/TMW4jx2/feature-selection.png>
+
+Pela imagem acima, percebe-se que a variável **Type** é disparada a que mais influencia nas previsões do modelo, com uma importância de 85%. Ou seja, o tipo de pagamento é um fator decisivo para a operação ser considerada fraudulenta.
+
+### **SHAP Values**
+O valor Shap é uma medida de impacto de cada feature na previsão de cada uma das instâncias. Quanto maior o valor SHAP de uma característica, mais importânte é a feature. No gráfico a seguir, foram calculados os valores SHAP para o conjunto de teste. Os valores SHAP são calculados para cada observação separadamente, mostrando a contribuição de cada característica para a previsão do modelo.
+
+<img src=https://i.ibb.co/NTtdgg7/SHAP-VALUE.png>
+
+No gráfico acima:
+
+* E(f(x)): é a expectativa (ou média) dos valores de f(x) sobre o conjunto de dados de teste. Em outras palavras, é o valor que o modelo prevê na ausência de toda features.
+
+* f(x): É o score bruto previsto para a observação específica após a influência de todas as features
+
+Cada barra no gráfico SHAP representa a contribuição de uma feature para a pontuação bruta (f(x)) daquela observação específica. Valores positivos indicam que a característica aumentou a pontuação bruta, tornando mais provável a classificação na classe positiva, enquanto valores negativos indicam que a característica diminuiu a pontuação bruta, tornando menos provável a classificação na classe positiva.
+
+Para transformar o score bruto (que pode ser interpretado como log-odds) em uma probabilidade, usamos a função sigmoid, assim como na regressão logística. A função sigmoid é definida como:
+
+$$P(y=1) = \frac{1}{1+e^{-f(x)}}$$
+
+Em que $P(y=1)$ é a probabilidade prevista da observação relacionada à classe positiva.
+
 ### **Tunagem de Hiperparâmetros**
 Em seguida o XGBoost passou por um processo de tunagem de hiperparâmetros, através de um algoritmo de otimização bayesiana que teve o objetivo de encontrar os parâmetros que maximizassem a métrica ROC AUC. Ao final do processo, o XGBoost apresentou os seguintes resultados:
 
-- Média da ROC_AUC: 0.9042
-- Média da Revocação: 0.9587
-- Média da Medida-F1: 0.2344
-- Média da Precision-Recall AUC: 0.5428
-- Média da Acurácia: 0.8597
+- Média da ROC_AUC: 0.9043
+- Média da Revocação: 0.9394
+- Média da Precisão: 0.1422
+- Média da Medida-F1: 0.2469
+- Média da Precision-Recall AUC: 0.5415
+- Média da Acurácia: 0.8708
 
 Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global poderia deixar de perder se possuísse um modelo antifraude para fazer a segurança de operações financeiras de pagamento dos clientes.
 
@@ -128,11 +152,11 @@ Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global pode
 
 No processo de extrair o máximo do modelo para evitar perdas financeiras oriundas de operações fraudulentas, foram obtidos os seguintes resultados para métricas e indicadores financeiros:
 
-- **Threshold Ótimo:** 96
+- **Threshold Ótimo:** 86
 - **Economia Significativa:** Implementação do modelo de detecção de fraude resultaria em uma economia estimada de **$1.09 milhão**.
-- **Desafios Identificados:** A análise revelou uma perda potencial de **$24 mil** devido a operações fraudulentas não detectadas.
-- **Impacto Líquido:** Com as melhorias propostas, a economia total projetada é de aproximadamente **$1.06 milhão**.
-- **Razão Lucro/Receita:** 97.7% 
+- **Desafios Identificados:** A análise revelou uma perda potencial de aproximadamente **$22 mil** devido a operações fraudulentas não detectadas.
+- **Impacto Líquido:** Com as melhorias propostas, a economia total projetada é de aproximadamente **$1.07 milhão**.
+- **Razão Lucro/Receita:** 97.99% 
 
 ## 🚧 Próximos Passos
 A fase subsequente do projeto é o seu deployment, envolvendo a implantação do modelo em um ambiente operacional para avaliação da sua eficiência em condições reais.
