@@ -90,13 +90,13 @@ Foram consideradas como **unidades financeiras** no modelo (ex: Dólar)
  
 ## 🤖 Modelagem
 
-Os dados foram divididos em 70% para treino e 30% para teste, sendo que são extremamente desbalanceados, conforme a Figura abaixo:
+Os dados são extremamente desbalanceados, conforme a Figura abaixo:
 
 <img src="https://i.ibb.co/7zjpbkF/fraude.png">
 
 Possuindo apenas 2,3% de operações fraudulentas. 
 
-Além disso, foi construída uma função de validação cruzada estratificada (pois a base é desbalanceada), dividindo os dados em 5 folds.
+Sendo assim, foi construída uma função de validação cruzada estratificada (devido ao desbalanceamento), dividindo os dados em 5 folds.
 
 <img src=https://i.ibb.co/RPMwXQ5/vc.png>
 
@@ -115,10 +115,10 @@ Como o XGBoost obteve o melhor desempenho geral, foi o modelo escolhido para pas
 
 <img src=https://i.ibb.co/TMW4jx2/feature-selection.png>
 
-Pela imagem acima, percebe-se que a variável **Type** é disparada a que mais influencia nas previsões do modelo, com uma importância de 85%. Ou seja, o tipo de pagamento é um fator decisivo para a operação ser considerada fraudulenta.
+Pela imagem acima, percebe-se que a variável **Type** é disparada a que mais influencia nas previsões do modelo, com uma importância de 85%. Ou seja, o tipo de pagamento é um fator decisivo para a operação ser considerada fraudulenta. Foram excluídas as 6 variáveis com menor resultado de importância, no gráfico aparecem apenas as selecionadas.
 
 ### **SHAP Values**
-O valor Shap é uma medida de impacto de cada feature na previsão de cada uma das instâncias. Quanto maior o valor SHAP de uma característica, mais importânte é a feature. No gráfico a seguir, foram calculados os valores SHAP para o conjunto de teste. Os valores SHAP são calculados para cada observação separadamente, mostrando a contribuição de cada característica para a previsão do modelo.
+O valor Shap é uma medida de impacto de cada feature na previsão de cada uma das instâncias. Quanto maior o valor SHAP de uma característica, mais importânte é a feature. No gráfico a seguir, foram calculados os valores SHAP **do primeiro registro do conjunto de teste**. Os valores SHAP são calculados **para cada observação separadamente**, mostrando a contribuição de cada característica para a previsão do modelo.
 
 <img src=https://i.ibb.co/NTtdgg7/SHAP-VALUE.png>
 
@@ -135,6 +135,7 @@ Para transformar o score bruto (que pode ser interpretado como log-odds) em uma 
 $$P(y=1) = \frac{1}{1+e^{-f(x)}}$$
 
 Em que $P(y=1)$ é a probabilidade prevista da observação relacionada à classe positiva.
+O resultado do gráfico mostra que, para a primeira observação, a característica que mais contribuiu foi a variável **Type**.
 
 ### **Tunagem de Hiperparâmetros**
 Em seguida o XGBoost passou por um processo de tunagem de hiperparâmetros, através de um algoritmo de otimização bayesiana que teve o objetivo de encontrar os parâmetros que maximizassem a métrica ROC AUC. Ao final do processo, o XGBoost apresentou os seguintes resultados:
