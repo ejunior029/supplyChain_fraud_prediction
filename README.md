@@ -102,8 +102,7 @@ Sendo assim, foi construída uma função de validação cruzada estratificada (
 
 Com isso, foram obtidas 5 valores para cada métrica, sendo realizada a média para chegar à um único valor representativo.
 
-## Métricas Obtidas Pelo Modelo
-Neste projeto foram utilizados os seguintes modelos:
+Além disso, neste projeto foram utilizados os seguintes modelos:
 
 - LightGBM
 - XGBoost
@@ -111,6 +110,7 @@ Neste projeto foram utilizados os seguintes modelos:
 - Balanced Random Forest
 
 ### **Feature Selection**
+
 Como o XGBoost obteve o melhor desempenho geral, foi o modelo escolhido para passar por um processo de feature selection que envolve a seleção das variáveis (atributos) mais importantes para serem usadas na construção do modelo preditivo. O objetivo é **melhorar a performance** do modelo, **reduzir a complexidade computacional** e **evitar o overfitting**. Foi utilizada a técnica chamada ***Recursive Feature Elimination*** (RFE), que é uma abordagem que seleciona atributos por meio de um processo iterativo de ajuste do modelo e remoção das variáveis menos importantes.
 
 <img src=https://i.ibb.co/TMW4jx2/feature-selection.png>
@@ -118,6 +118,7 @@ Como o XGBoost obteve o melhor desempenho geral, foi o modelo escolhido para pas
 Pela imagem acima, percebe-se que a variável **Type** é disparada a que mais influencia nas previsões do modelo, com uma importância de 85%. Ou seja, o tipo de pagamento é um fator decisivo para a operação ser considerada fraudulenta. Foram excluídas as 6 variáveis com menor resultado de importância, no gráfico aparecem apenas as selecionadas.
 
 ### **SHAP Values**
+
 O valor Shap é uma medida de impacto de cada feature na previsão de cada uma das instâncias. Quanto maior o valor SHAP de uma característica, mais importânte é a feature. No gráfico a seguir, foram calculados os valores SHAP **do primeiro registro do conjunto de teste**. Os valores SHAP são calculados **para cada observação separadamente**, mostrando a contribuição de cada característica para a previsão do modelo.
 
 <img src=https://i.ibb.co/NTtdgg7/SHAP-VALUE.png>
@@ -128,16 +129,16 @@ No gráfico acima:
 
 * f(x): É o score bruto previsto para a observação específica após a influência de todas as features
 
-Cada barra no gráfico SHAP representa a contribuição de uma feature para a pontuação bruta (f(x)) daquela observação específica. Valores positivos indicam que a característica aumentou a pontuação bruta, tornando mais provável a classificação na classe positiva, enquanto valores negativos indicam que a característica diminuiu a pontuação bruta, tornando menos provável a classificação na classe positiva.
+Cada barra no gráfico SHAP representa a contribuição de uma feature para a pontuação bruta (f(x)) daquela observação específica. Valores positivos indicam que a característica aumentou a pontuação bruta, tornando mais provável a classificação na classe positiva, enquanto valores negativos indicam que a característica diminuiu a pontuação bruta, tornando menos provável a classificação na classe positiva. O resultado do gráfico mostra que, para a primeira observação, a característica que mais contribuiu foi a variável **Type**.
 
 Para transformar o score bruto (que pode ser interpretado como log-odds) em uma probabilidade, usamos a função sigmoid, assim como na regressão logística. A função sigmoid é definida como:
 
 $$P(y=1) = \frac{1}{1+e^{-f(x)}}$$
 
 Em que $P(y=1)$ é a probabilidade prevista da observação relacionada à classe positiva.
-O resultado do gráfico mostra que, para a primeira observação, a característica que mais contribuiu foi a variável **Type**.
 
 ### **Tunagem de Hiperparâmetros**
+
 Em seguida o XGBoost passou por um processo de tunagem de hiperparâmetros, através de um algoritmo de otimização bayesiana que teve o objetivo de encontrar os parâmetros que maximizassem a métrica ROC AUC. Ao final do processo, o XGBoost apresentou os seguintes resultados:
 
 - Média da ROC_AUC: 0.9043
