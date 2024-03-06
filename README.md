@@ -109,6 +109,15 @@ Além disso, neste projeto foram utilizados os seguintes modelos:
 - CatBoost
 - Balanced Random Forest
 
+### Feature Engineering
+
+Nesta etapa é realizada a criação de novas *features* que possam melhorar o desempenho do modelo em identificar operações fraudulentas. Foi criada uma função de *feature engineering* em que definia duas novas variáveis:
+
+* **Total_Orders_By_Customer (Total de Pedidos Por Cliente):** Tentativa de verificar se clientes com um número anormalmente alto de pedidos possuem contribuição para atividades fraudulentas.
+* **CLV (Customer Novolty Index, ou Índice de Novidade do Cliente):** É uma métrica que visa quantificar há quanto tempo um cliente está fazendo negócios com a empresa.
+
+Esta função de *feature engineering* foi executada dentro da função de validação cruzada, fazendo com que as novas variáveis fossem criadas automaticamente a cada *fold*.
+
 ### **Feature Selection**
 
 Como o XGBoost obteve o melhor desempenho geral, foi o modelo escolhido para passar por um processo de feature selection que envolve a seleção das variáveis (atributos) mais importantes para serem usadas na construção do modelo preditivo. O objetivo é **melhorar a performance** do modelo, **reduzir a complexidade computacional** e **evitar o overfitting**. Foi utilizada a técnica chamada ***Recursive Feature Elimination*** (RFE), que é uma abordagem que seleciona atributos por meio de um processo iterativo de ajuste do modelo e remoção das variáveis menos importantes.
