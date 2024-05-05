@@ -169,9 +169,9 @@ Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global pode
 
 No processo de extrair o máximo do modelo para evitar perdas financeiras oriundas de operações fraudulentas, foram obtidos os seguintes resultados para métricas e indicadores financeiros:
 
-- **Threshold Ótimo:** 86
+- **Threshold Ótimo:** 0.6
 - **Economia Significativa:** Implementação do modelo de detecção de fraude resultaria em uma economia estimada de **$1.09 milhão**.
-- **Desafios Identificados:** A análise revelou uma perda potencial de aproximadamente **$22 mil** devido a operações fraudulentas não detectadas.
+- **Desafios Identificados:** A análise revelou uma perda potencial de aproximadamente **$18 mil** devido a operações fraudulentas não detectadas.
 - **Impacto Líquido:** Com as melhorias propostas, a economia total projetada é de aproximadamente **$1.07 milhão**.
 - **Razão Lucro/Receita:** 97.99% 
 
