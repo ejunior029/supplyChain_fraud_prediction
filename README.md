@@ -157,6 +157,12 @@ Em seguida o XGBoost passou por um processo de tunagem de hiperparâmetros, atra
 - Média da Precision-Recall AUC: 0.5415
 - Média da Acurácia: 0.8708
 
+Ainda foi possível obter a distribuição de probabilidades do modelo final para cada uma das classes:
+
+<img src="https://i.ibb.co/j5qLgNC/fraude.png">
+
+Observando o gráfico acima, percebe-se uma clara distinção entre as transações legítimas e as fraudulentas no modelo treinado. Isso indica que o modelo possui uma grande capacidade de distinguir entre o que é uma fraude e o que não é, resultando em classificações mais precisas.
+
 Com isso, o XGBoost foi escolhido para identificar o quanto a DataCo Global poderia deixar de perder se possuísse um modelo antifraude para fazer a segurança de operações financeiras de pagamento dos clientes.
 
 ## 💡Desempenho Financeiro e Métricas
